@@ -51,7 +51,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="APIs\ClienteAPI.cs" />
+    <Compile Include="APIs\ReservaAPI.cs" />
+    <Compile Include="APIs\ViajeAPI.cs" />
+    <Compile Include="Assemblers\ClienteAssembler.cs" />
+    <Compile Include="Assemblers\ReservaAssembler.cs" />
+    <Compile Include="Assemblers\ViajeAssembler.cs" />
+    <Compile Include="DTOs\ClienteDTO.cs" />
+    <Compile Include="DTOs\ReservaDTO.cs" />
+    <Compile Include="DTOs\ViajeDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
