@@ -68,11 +68,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AgenciaViajesModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Class1.cs" />
     <Compile Include="Clientes.cs">
       <DependentUpon>AgenciaViajesModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepositorioClientes.cs" />
+    <Compile Include="RepositorioReservas.cs" />
+    <Compile Include="RepositorioViajes.cs" />
     <Compile Include="Reservas.cs">
       <DependentUpon>AgenciaViajesModel.tt</DependentUpon>
     </Compile>
