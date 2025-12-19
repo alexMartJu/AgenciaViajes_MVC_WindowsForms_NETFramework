@@ -100,19 +100,19 @@ namespace AgenciaViajes.View
         //EditarCliente() --> Método para editar un cliente existente
         private void EditarCliente()
         {
-            if (Validar()) //Validamos los campos
+            if (dgvClientes.CurrentRow != null)
             {
-                if (dgvClientes.CurrentRow != null) //Comprobamos que hay una fila seleccionada
+                if (Validar())
                 {
-                    var cliente = (ClienteDTO)dgvClientes.CurrentRow.DataBoundItem; //Obtenemos el cliente seleccionado
-                    //Actualizamos los datos del cliente
+                    var cliente = (ClienteDTO)dgvClientes.CurrentRow.DataBoundItem;
+
                     cliente.Nombre = txtNombre.Text;
                     cliente.Apellidos = txtApellidos.Text;
                     cliente.Email = txtEmail.Text;
 
                     try
                     {
-                        api.Editar(cliente); //Llamamos a la API para editar el cliente
+                        api.Editar(cliente);
                         Listar();
                         LimpiarCampos();
                         MessageBox.Show("Cliente actualizado.");
@@ -122,10 +122,10 @@ namespace AgenciaViajes.View
                         MessageBox.Show(ex.Message);
                     }
                 }
-                else
-                {
-                    MessageBox.Show("Debe seleccionar un cliente para editar.");
-                }
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un cliente para editar.");
             }
         }
 

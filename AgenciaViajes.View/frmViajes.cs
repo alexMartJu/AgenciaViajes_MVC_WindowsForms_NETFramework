@@ -103,18 +103,18 @@ namespace AgenciaViajes.View
         //EditarViaje() --> Método para editar un viaje existente
         private void EditarViaje()
         {
-            if (Validar()) //Si los datos son válidos
+            if (dgvViajes.CurrentRow != null)
             {
-                if (dgvViajes.CurrentRow != null) //Comprobamos que hay una fila seleccionada
+                if (Validar())
                 {
-                    var viaje = (ViajeDTO)dgvViajes.CurrentRow.DataBoundItem; //Obtenemos el viaje seleccionado
+                    var viaje = (ViajeDTO)dgvViajes.CurrentRow.DataBoundItem;
                     viaje.Destino = txtDestino.Text;
                     viaje.Precio = decimal.Parse(txtPrecio.Text);
                     viaje.PlazasDisponibles = int.Parse(txtPlazas.Text);
 
                     try
                     {
-                        api.Modificar(viaje); //Llamamos a la API para modificar el viaje
+                        api.Modificar(viaje);
                         Listar();
                         LimpiarCampos();
                         MessageBox.Show("Viaje actualizado.");
@@ -124,10 +124,10 @@ namespace AgenciaViajes.View
                         MessageBox.Show(ex.Message);
                     }
                 }
-                else
-                {
-                    MessageBox.Show("Debe seleccionar un viaje para editar.");
-                }
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un viaje para editar.");
             }
         }
 
